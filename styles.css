@@ -1,5 +1,25 @@
-header{
-    background-color: aquamarine;
+.chaos{
+    background-color: #003399;
     text-align: center;
+    height:100px;
     color:white;
+   
+}
+
+.searcher{
+    
+    padding-top: 15px;
+}
+
+.searcher > input{
+    width:300px;
+    height:30px;
+}
+
+.searcher > button{
+    height: 30px;
+    width:100px;
+    background-color: red;
+    color:black;
+    border:none;
 }

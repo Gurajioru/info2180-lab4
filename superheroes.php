@@ -62,11 +62,27 @@ $superheroes = [
       "biography" => "Notably powerful, Wanda Maximoff has fought both against and with the Avengers, attempting to hone her abilities and do what she believes is right to help the world.",
   ], 
 ];
-
 ?>
+    <?php $_GET=filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+    <?php foreach($superheroes as $superhero): ?>
+        <?php if($_GET['query']==$superhero['name'] or $_GET['query']==$superhero['alias']):?>
+            <h3><?= $superhero['alias'];?></h3>
+            <h4><?= $superhero['name'];?></h4>
+            <p><?= $superhero['biography'];?></p>
+            <?php return 0;?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+
+    <?php if(strlen($_GET['query'])>0): ?>
+        <h4>Superhero not found</h4>
+        <?php return; ?>
+    <?php endif; ?>
+
+    
+        <ul>
+            <?php foreach ($superheroes as $superhero): ?>
+                <li><?= $superhero['alias']; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    
