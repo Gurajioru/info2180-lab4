@@ -9,7 +9,7 @@ var url = "superheroes.php";
 
 function handleClick(e){
 
-    //preventDefault();
+    e.preventDefault();
     
 
     var url = "superheroes.php";
