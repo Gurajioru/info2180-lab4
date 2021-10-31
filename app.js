@@ -14,6 +14,8 @@ function handleClick(e){
 
     var url = "superheroes.php";
     var hero= document.getElementById("heroSearcher").value;
+    hero=hero.trim();
+    
     var sendToPhp=url+"?query="+hero;
 
     httpRequest.onreadystatechange = getList();
